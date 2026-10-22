@@ -1,4 +1,4 @@
-
+```js
 import { createClient } from "@supabase/supabase-js";
 
 const supabase = createClient(
@@ -15,6 +15,7 @@ export default async function handler(req, res) {
         .order("created_at", { ascending: false });
 
       if (error) throw error;
+
       return res.status(200).json(data);
     }
 
@@ -22,7 +23,9 @@ export default async function handler(req, res) {
       const title = req.body?.title?.trim();
 
       if (!title) {
-        return res.status(400).json({ error: "Task title is required" });
+        return res.status(400).json({
+          error: "Task title is required"
+        });
       }
 
       const { data, error } = await supabase
@@ -32,12 +35,22 @@ export default async function handler(req, res) {
         .single();
 
       if (error) throw error;
+
       return res.status(201).json(data);
     }
 
-    return res.status(405).json({ error: "Method not allowed" });
+    return res.status(405).json({
+      error: "Method not allowed"
+    });
   } catch (error) {
     console.error("Tasks API error:", error);
-    return res.status(500).json({ error: "Server error" });
+
+    return res.status(500).json({
+      error: error.message || "Unknown server error",
+      code: error.code || null,
+      hint: error.hint || null,
+      details: error.details || null
+    });
   }
 }
+```
