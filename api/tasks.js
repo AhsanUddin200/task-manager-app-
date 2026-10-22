@@ -1,12 +1,12 @@
 
-const { createClient } = require("@supabase/supabase-js");
+import { createClient } from "@supabase/supabase-js";
 
 const supabase = createClient(
   process.env.SUPABASE_URL,
   process.env.SUPABASE_SECRET_KEY
 );
 
-module.exports = async (req, res) => {
+export default async function handler(req, res) {
   try {
     if (req.method === "GET") {
       const { data, error } = await supabase
@@ -37,7 +37,7 @@ module.exports = async (req, res) => {
 
     return res.status(405).json({ error: "Method not allowed" });
   } catch (error) {
-    console.error("Tasks API error:", error.message);
+    console.error("Tasks API error:", error);
     return res.status(500).json({ error: "Server error" });
   }
-};
+}
