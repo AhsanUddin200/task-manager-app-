@@ -1,0 +1,457 @@
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+
+:root {
+  font-family: "DM Sans", sans-serif;
+  color: #e2e8f0;
+  background: #080d1b;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at top, #172044 0%, transparent 55%),
+    #080d1b;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid #a78bfa;
+  outline-offset: 3px;
+}
+
+.app {
+  width: min(100% - 32px, 760px);
+  margin: 0 auto;
+  padding: 56px 0 30px;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.app-icon {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 18px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+  color: white;
+  font-size: 28px;
+  font-weight: 700;
+  box-shadow: 0 10px 35px rgba(124, 58, 237, 0.3);
+}
+
+.eyebrow {
+  color: #a78bfa;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.app-header h1 {
+  margin: 12px 0 8px;
+  color: #f8fafc;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: clamp(30px, 5vw, 42px);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+}
+
+.app-header p {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 15px;
+}
+
+.quote-card {
+  margin-bottom: 24px;
+  padding: 24px;
+  border: 1px solid rgba(167, 139, 250, 0.25);
+  border-radius: 18px;
+  background: linear-gradient(
+    135deg,
+    rgba(124, 58, 237, 0.16),
+    rgba(30, 41, 59, 0.65)
+  );
+}
+
+.quote-card blockquote {
+  margin: 16px 0 10px;
+  color: #f1f5f9;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.quote-author {
+  color: #c4b5fd;
+  text-align: right;
+  font-size: 14px;
+}
+
+.quote-placeholder {
+  margin: 16px 0;
+  color: #cbd5e1;
+}
+
+.quote-button {
+  margin-top: 12px;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 10px;
+  background: #7c3aed;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.quote-button:hover {
+  background: #6d28d9;
+  transform: translateY(-1px);
+}
+
+.quote-button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+  transform: none;
+}
+
+.quote-error {
+  color: #fca5a5;
+  font-size: 14px;
+}
+
+.task-summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.task-summary > div {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 20px;
+  border: 1px solid #25304a;
+  border-radius: 16px;
+  background: rgba(17, 25, 45, 0.85);
+}
+
+.summary-number {
+  color: #f8fafc;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.summary-label {
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.add-form {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding: 8px;
+  border: 1px solid #2b3651;
+  border-radius: 15px;
+  background: #11192d;
+}
+
+.add-form input,
+.edit-input {
+  width: 100%;
+  min-width: 0;
+  padding: 12px 14px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  outline: none;
+  background: transparent;
+  color: #f8fafc;
+}
+
+.add-form input::placeholder,
+.edit-input::placeholder {
+  color: #64748b;
+}
+
+.add-form input:focus,
+.edit-input:focus {
+  border-color: #6d5bd0;
+}
+
+.add-button,
+.save-button {
+  flex-shrink: 0;
+  padding: 12px 18px;
+  border: 0;
+  border-radius: 10px;
+  background: #7c3aed;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.add-button:hover,
+.save-button:hover {
+  background: #6d28d9;
+}
+
+.error-message {
+  margin-bottom: 18px;
+  padding: 12px 14px;
+  border: 1px solid rgba(248, 113, 113, 0.25);
+  border-radius: 10px;
+  background: rgba(127, 29, 29, 0.2);
+  color: #fca5a5;
+  font-size: 14px;
+}
+
+.tasks-section {
+  margin-top: 30px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.section-heading h2 {
+  margin: 0;
+  color: #f1f5f9;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.task-count {
+  padding: 6px 10px;
+  border: 1px solid #29344e;
+  border-radius: 20px;
+  color: #a5b4fc;
+  font-size: 12px;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid #25304a;
+  border-radius: 13px;
+  background: rgba(17, 25, 45, 0.8);
+}
+
+.task-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.task-label input {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  accent-color: #8b5cf6;
+  cursor: pointer;
+}
+
+.task-title {
+  overflow-wrap: anywhere;
+  color: #e2e8f0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.task-done .task-title {
+  color: #64748b;
+  text-decoration: line-through;
+}
+
+.task-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.edit-button,
+.delete-button,
+.cancel-button {
+  padding: 8px 11px;
+  border: 1px solid #35415c;
+  border-radius: 8px;
+  background: #18223a;
+  color: #cbd5e1;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.edit-button:hover {
+  background: #293657;
+}
+
+.delete-button {
+  border-color: rgba(248, 113, 113, 0.2);
+  background: rgba(127, 29, 29, 0.12);
+  color: #fca5a5;
+}
+
+.delete-button:hover {
+  background: rgba(127, 29, 29, 0.35);
+}
+
+.edit-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.edit-input {
+  flex: 1;
+  border-color: #35415c;
+  background: #0c1325;
+}
+
+.cancel-button:hover {
+  background: #293657;
+}
+
+.empty-state {
+  padding: 44px 20px;
+  border: 1px dashed #35415c;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.empty-icon {
+  margin-bottom: 12px;
+  color: #a78bfa;
+  font-size: 36px;
+}
+
+.empty-state h3 {
+  margin: 0 0 8px;
+  color: #e2e8f0;
+  font-size: 16px;
+}
+
+.empty-state p,
+.empty-message {
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.app-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 36px;
+  padding-top: 20px;
+  border-top: 1px solid #202a40;
+  color: #64748b;
+  font-size: 12px;
+}
+
+@media (max-width: 560px) {
+  .app {
+    width: min(100% - 24px, 760px);
+    padding-top: 32px;
+  }
+
+  .task-summary {
+    gap: 8px;
+  }
+
+  .task-summary > div {
+    padding: 14px 10px;
+  }
+
+  .summary-number {
+    font-size: 23px;
+  }
+
+  .summary-label {
+    font-size: 11px;
+  }
+
+  .add-form {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .add-button {
+    width: 100%;
+  }
+
+  .task {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .task-actions {
+    align-self: flex-end;
+  }
+
+  .edit-row {
+    flex-wrap: wrap;
+  }
+
+  .edit-input {
+    flex-basis: 100%;
+  }
+
+  .quote-card {
+    padding: 18px;
+  }
+
+  .quote-card blockquote {
+    font-size: 16px;
+  }
+
+  .app-footer {
+    flex-direction: column;
+    align-items: center;
+  }
+}
